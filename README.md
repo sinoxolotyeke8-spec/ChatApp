@@ -8,6 +8,7 @@
 
 ---
 
+
 # Project Overview
 
 ChatApp Part 1 is a Java-based messaging application that allows users to:
