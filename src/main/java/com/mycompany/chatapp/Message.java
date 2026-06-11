@@ -148,18 +148,39 @@ public class Message {
     // =========================================================
 
     public String sendMessage(int option) {
+        if (messageHash == null){
+            createMessageHash();
+        }
         switch (option) {
+
             case 1:
+                // Send: populate sent array and all tracking arrays
+                sentMessages.add(messageText);
+                messageHashes.add(messageHash);
+                messageIDs.add(messageID);
+                recipients.add(recipient);
                 return "Message successfully sent.";
+
             case 2:
+                // Discard: only add to disregarded array, no tracking
+                disregardedMessages.add(messageText);
                 return "Message discarded.";
+
             case 3:
+                // Store: write to JSON file and populate tracking arrays
+                // Note: storedMessages array is populated only by loadStoredMessages()
                 storeMessage();
+                messageHashes.add(messageHash);
+                messageIDs.add(messageID);
+                recipients.add(recipient);
+                sentMessages.add(messageText); // keeps parallel index alignment for searches
                 return "Message successfully stored.";
+
             default:
                 return "Invalid option selected.";
         }
     }
+
 
     // =========================================================
     // SAVE MESSAGE TO FILE
