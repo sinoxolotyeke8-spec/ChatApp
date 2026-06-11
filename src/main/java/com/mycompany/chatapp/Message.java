@@ -7,6 +7,7 @@ package com.mycompany.chatapp;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Message {
@@ -28,11 +29,31 @@ public class Message {
 
     // Counter used to track total messages created
     private static int totalMessages = 0;
+        // =========================================================
+    // CONSTRUCTOR
+    // PARALLEL ARRAYS - populated as messages are processed
+    // =========================================================
+    // Stores text of every message the user chose to Send (option 1)
+    private static ArrayList<String> sentMessages = new ArrayList<>();
 
+    // Stores text of every message the user chose to Discard (option 2)
+    private static ArrayList<String> disregardedMessages = new ArrayList<>();
+
+    // Stores text of messages read back from the JSON file (loadStoredMessages only)
+    private static ArrayList<String> storedMessages = new ArrayList<>();
+
+    // Stores the hash for every message that was sent or stored
+    private static ArrayList<String> messageHashes = new ArrayList<>();
+
+    // Stores the ID for every message that was sent or stored
+    private static ArrayList<String> messageIDs = new ArrayList<>();
+
+    // Stores the recipient for every message that was sent or stored
+    private static ArrayList<String> recipients = new ArrayList<>();
     // =========================================================
     // CONSTRUCTOR
     // =========================================================
-
+    
     public Message(int messageNumber, String recipient, String messageText) {
         this.messageID = generateMessageID();
         this.messageNumber = messageNumber;
