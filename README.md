@@ -17,6 +17,7 @@ ChatApp Part 1 is a Java-based messaging application that allows users to:
 * Register an account
 * Log in using registered credentials
 * Send messages
+* 
 * View recently sent messages
 * Store messages in a JSON file
 * Generate unique message IDs
