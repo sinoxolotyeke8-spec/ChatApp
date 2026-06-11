@@ -13,6 +13,7 @@
 
 ChatApp Part 1 is a Java-based messaging application that allows users to:
 
+
 * Register an account
 * Log in using registered credentials
 * Send messages
